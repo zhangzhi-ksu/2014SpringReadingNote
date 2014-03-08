@@ -1,0 +1,44 @@
+\section{JML}
+JML \cite{Patrice:06, Lilian:04} is a state-based specification languages. 
+The language constructs for specifying an object-oriented module
+include assertions, pre and postconditions, invariants, frame properties,
+datagroups, and ghost and model fields
+\begin{itemize}
+  \item invariant: $\textbf{@ protected/public/private invariant}$ denotes
+  object invariant;
+  \item precondition: $\textbf{@requires}$
+  \item postcondition: $\textbf{@ensures}$
+  \item assignable: $\textbf{@assignable}$ specify which parts of the system
+  state may change as the result of the method execution;
+  \item frame properties: assignable clause specify the frame property.
+  Any location outside the frame property is guaranteed to have the same value
+  after the method has executed;
+  \item datagroups: $\textbf{@ public model JMLDataGroup x}$, which abstract
+  away from private implementation details in frame properties and provides flexibility in
+  specifications; use $\textbf{@in x}$ to specify which variables are abstracted
+  by abstract variable $x$;
+  \item model field: $\textbf{@public model x}$ and $\textbf{@ private
+  represents x = Exp(variables);}$ A model field is a specification-only field
+  that pro- vides an abstraction of (part of) the concrete state of an object;
+  \item ghost: $\textbf{@public ghost x}$ and $\textbf{@private/public/protected
+  invariant x == Exp}$, where ghost fields are specification-only fields. While
+  a model field provides an abstraction of the existing state, a ghost field can
+  provide some additional state, which may—or may not—be related to the existing state.
+    \begin{itemize}
+      \item $\textbf{@set x = v}$: statement to update ghost variables, while
+      model field will update automatically;
+      \item A ghost field extends the state of an object, whereas a model field
+      is an abstraction of the existing state of an object
+    \end{itemize}
+  \item other constructs: 
+    \begin{itemize}
+      \item $\textbf{specification inheritance}$: Class B extends A {\ldots},
+      the specification for inherited action in B should be also satisfied by A;
+      \item $\textbf{postconditions}$: include both normal postconditions and
+      exceptional postconditions, which is expressed by means of
+      $\textbf{signals}$ clauses, that must hold when a method terminates with
+      an exception
+      \item $\textbf{pure function}$: has no side effects, e.g. value reading
+      function $\mathit{getTime()}$, which can be used in specification;
+    \end{itemize}
+\end{itemize}
