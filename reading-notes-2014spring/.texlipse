@@ -1,0 +1,14 @@
+#TeXlipse project settings
+#Fri Mar 07 23:01:59 CST 2014
+markTmpDer=true
+builderNum=2
+outputDir=
+makeIndSty=
+bibrefDir=
+outputFormat=pdf
+tempDir=tmp
+mainTexFile=readingNotes.tex
+outputFile=readingNotes.pdf
+langSpell=en
+markDer=true
+srcDir=

@@ -1,0 +1,263 @@
+%%% modifications of list environments
+
+\newenvironment{citemize}{
+   \setlength{\partopsep}{0pt}
+   \vspace{-\parskip}
+   \begin{itemize}
+   \setlength{\parsep}{0pt}
+   \setlength{\parskip}{0pt}}{\end{itemize}}
+
+\newenvironment{smallitemize}{\setlength{\topsep}{0.0 truein}
+   \begin{itemize}
+   \setlength{\leftmargin}{.25 truein}
+   \setlength{\parsep}{0.0 truein}
+   \setlength{\parskip}{0.0 truein}
+   \setlength{\itemsep}{0.0 truein}}{\end{itemize}}
+
+\newenvironment{smalldescription}{\setlength{\topsep}{0.0 truein}
+   \begin{description}
+   \setlength{\leftmargin}{.25 truein}
+   \setlength{\parsep}{0.0 truein}
+   \setlength{\parskip}{0.0 truein}
+   \setlength{\itemsep}{0.0 truein}}{\end{description}}
+
+\newenvironment{smallenumerate}{\setlength{\topsep}{0.0 truein}
+   \begin{enumerate}
+   \setlength{\leftmargin}{0.25 truein}
+   \setlength{\parsep}{0.0 truein}
+   \setlength{\parskip}{0.0 truein}
+   \setlength{\itemsep}{0.0 truein}}{\end{enumerate}}
+
+\newenvironment{flatenumerate}{\setlength{\topsep}{0.0 truein}
+   \begin{enumerate}
+   \setlength{\leftmargin}{0.25 truein}
+   \setlength{\parsep}{0.0 truein}
+   \setlength{\parskip}{0.0 truein}
+   \setlength{\itemsep}{0.0 truein}}{\end{enumerate}}
+
+\newenvironment{myitemize}[1]%
+               {\begin{itemize}\setlength{\itemsep}{#1}}%
+               {\end{itemize}}
+
+
+%%% spacing helps
+
+\def\sqzhuge{\vspace{-14pt}}
+\def\sqzlarge{\vspace{-12pt}}
+\def\sqzsub{\vspace{-10pt}}
+\def\sqzpar{\vspace{-10pt}}
+\def\sqzsmall{\vspace{-7pt}}
+\def\sqztiny{\vspace{-5pt}}
+\def\sqz{\vspace{-10pt}}
+
+%%% latin abbrevs
+
+\newcommand{\ie}{{\em i.e.}}
+\newcommand{\wrt}{{\em wrt.}}
+\newcommand{\eg}{{\em e.g.}}
+\newcommand{\etc}{{\em etc.}}
+\newcommand{\etal}{{\em et al.}}
+
+%%% editing
+
+\newcommand{\comment}[1]{{\sf ({#1})}}
+\newcommand{\ignore}[1]{}
+
+%%% misc
+
+\newcommand{\mkset}[1]{\{{#1}\}}
+\newcommand{\compname}[1]{{\sf {#1}}}
+\newcommand{\comptype}[1]{\texttt{#1}}
+\newcommand{\opname}[1]{\textsf{#1}}
+\newcommand{\scenname}[1]{\textsf{#1}}
+\newcommand{\birop}[1]{\textsf{#1}}
+\newcommand{\cpsop}[1]{\textsf{#1}}
+\newcommand{\problemtxt}[1]{{\sf [#1]}}
+\newcommand{\sparkcode}[1]{{\texttt{#1}}}
+
+%%% ---
+%%%  General math
+\newcommand{\True}{\mathsf{True}}
+\newcommand{\False}{\mathsf{False}}
+\newcommand{\all}[2]{\forall #1 \bullet #2}
+\newcommand{\some}[2]{\exists #1 \bullet #2}
+\newcommand{\powset}[1]{\ensuremath{\mathcal{P}(#1)}}
+\newcommand{\rel}[3]{#1\;#2\;#3}
+\newcommand{\fromto}[2]{\{{#1}\ldots{#2}\}}
+\newcommand{\dom}[1]{\mathit{dom(#1)}}
+\newcommand{\ran}[1]{\mathit{ran(#1)}}
+\newcommand{\imp}{\Rightarrow}
+% \replace{entity}{new}{old}
+\newcommand{\repl}[3]{{#1}[{#2}/{#3}]}
+\newcommand{\updsto}[3]{[#1\mid#2\!\mapsto\!#3]}
+%%% ---
+%%%  Syntax
+\newcommand{\svarset}{\mathbf{SVar}}
+\newcommand{\hvarset}{\mathbf{HVar}}
+\newcommand{\fv}[1]{\mathrm{fv}(#1)}
+% \updarr{H}{A}{A}
+\newcommand{\updarr}[3]{{#1}\{{#2}\,:\,{#3}\}}
+% \accarr{H}{A}
+\newcommand{\accarr}[2]{{#1}[{#2}]}
+\newcommand{\zeroarr}{Z}
+\newcommand{\expset}{\mathbf{Exp}}
+\newcommand{\aexpset}{\mathbf{AExp}}
+\newcommand{\bexpset}{\mathbf{BExp}}
+\newcommand{\hexpset}{\mathbf{HExp}}
+\newcommand{\cntxtset}{\mathbf{Cntxt}}
+\newcommand{\cmdset}{\mathbf{Cmd}}
+\newcommand{\op}{\mathsf{op}}
+%%\newcommand{\mod}{\mathsf{mod}}
+\newcommand{\odd}[1]{\mathsf{odd}({#1})}
+\newcommand{\bop}{\mathsf{bop}}
+\newcommand{\opexp}[3]{{#1}\:{#2}\:{#3}}
+\newcommand{\hole}{\lfloor\,\rfloor}
+\newcommand{\plug}[2]{{#1}\lfloor{#2}\rfloor}
+\newcommand{\SKIP}{\mathbf{skip}}
+\newcommand{\ASSERT}{\mathbf{assert}}
+\newcommand{\IF}{\mathbf{if}}
+\newcommand{\THEN}{\mathbf{then}}
+\newcommand{\ELSE}{\mathbf{else}}
+\newcommand{\FI}{\mathbf{fi}}
+\newcommand{\WHILE}{\mathbf{while}}
+\newcommand{\DO}{\mathbf{do}}
+\newcommand{\OD}{\mathbf{od}}
+\newcommand{\NEW}{\mathbf{new}}
+\newcommand{\AND}{\mathbf{and}}
+\newcommand{\NOT}{\mathbf{not}}
+\newcommand{\TRUE}{\mathbf{true}}
+\newcommand{\FALSE}{\mathbf{false}}
+\newcommand{\assignc}[2]{\ensuremath{{#1}\;\mbox{:=}\;{#2}}}
+\newcommand{\updatec}[3]{\ensuremath{{#1}[{#2}]\;\mbox{:=}\;{#3}}}
+\newcommand{\skipc}{\mathbf{skip}}
+\newcommand{\newc}[1]{{#1} := \mathbf{new}}
+\newcommand{\assertc}[1]{\mathbf{assert}({#1})}
+\newcommand{\seqc}[2]{\ensuremath{{#1}\:;{#2}}}
+\newcommand{\ifc}[3]{\mathbf{if}\ {#1}\ \mathbf{then}\ {#2}\ \mathbf{else}\ {#3}}
+\newcommand{\whilec}[2]{\mathbf{while}\ {#1}\ \mathbf{do}\ {#2}\ \mathbf{od}}
+\newcommand{\callc}[1]{\mathbf{call}\ {#1}}
+%%% ---
+%%%  Semantics
+\newcommand{\sto}{\mathit{Store}}
+\newcommand{\arr}{\mathit{Array}}
+\newcommand{\Val}{\mathit{Val}}
+% \setarr{s}{h}{n}{v}
+\newcommand{\setarr}[4]{\updsto{{#1}}{{#2}({#3})}{{#4}}}
+\newcommand{\semf}[1]{\ensuremath{[\![{#1}]\!]}}
+% \seme{E}{s}
+\newcommand{\seme}[2]{\ensuremath{[\![{#1}]\!]_{#2}}}
+% \sem{s}{S}{s}
+\newcommand{\sem}[3]{\ensuremath{{#1}\;\semf{#2}\;{#3}}}
+% \semit{s}{f_i}{s}
+\newcommand{\semit}[3]{\ensuremath{{#1}\;#2\;{#3}}}
+%%% ---
+%%% One-store Assertions
+\newcommand{\oneassert}{\mathbf{1Assert}}
+\newcommand{\ph}{\phi}
+\newcommand{\true}{\mbox{\it true}}
+\newcommand{\false}{\mbox{\it false}}
+% \satone{s}{\ph}
+\newcommand{\satone}[2]{{#1} \models {#2}}
+\newcommand{\logeqone}[2]{{#1} \equiv_1 {#2}}
+\newcommand{\LOGIMPonec}{\vartriangleright_1}
+\newcommand{\logimponec}[2]{{#1}\LOGIMPonec {#2}}
+%%% ---
+%%% Two-store Assertions
+\newcommand{\twoassert}{\mathbf{2Assert}}
+\newcommand{\twoasserts}{\powset{\twoassert}}
+\newcommand{\tht}{\theta}
+\newcommand{\Tht}{\Theta}
+\newcommand{\indpdsym}{\mathord{\ltimes}}
+\newcommand{\indpd}[1]{\ensuremath{{#1}\indpdsym}}
+\newcommand{\iindpd}[2]{\ensuremath{{#1}\indpdsym_{#2}}}
+\newcommand{\mktht}[2]{{#1} \imp \indpd{#2}}
+\newcommand{\decompf}{\mathit{decomp}}
+\newcommand{\decomp}[1]{\mathit{decomp}(#1)}
+% \sattwo{s}{s}{\tht}
+\newcommand{\sattwo}[3]{{#1}\&{#2} \models {#3}}
+\newcommand{\nsattwo}[3]{{#1}\&{#2} \not\!\models {#3}}
+\newcommand{\logeqtwo}[2]{{#1} \equiv_2 {#2}}
+% \lhst{\theta}
+\newcommand{\LOGIMPtwoc}{\vartriangleright_2}
+\newcommand{\logimptwoc}[2]{{#1}\LOGIMPtwoc {#2}}
+\newcommand{\lhst}[1]{ant({#1})}
+% \rhst{\theta}
+\newcommand{\rhst}[1]{con({#1})}
+\newcommand{\wli}{{\cal I}}
+%%% ---
+%%% Algorithm
+% \algo{S}{post}{pre}{R}
+\newcommand{\VCgen}{\ensuremath{\mathsf{Pre}}}
+\newcommand{\algo}[4]{\{{#3}\}\;({#4})\!\Longleftarrow {#1}\:\{{#2}\}\:}
+\newcommand{\satvc}[1]{\models {#1}}
+\newcommand{\wide}{\bigtriangledown}
+% \remx{X}{\ph}
+\newcommand{\remx}[2]{rm^{+}_{#1}(#2)}
+\newcommand{\remxm}[2]{rm^{-}_{#1}(#2)}
+\newcommand{\remxf}{rm^{+}}
+\newcommand{\remxmf}{rm^{-}}
+\newcommand{\ism}{m}
+\newcommand{\notm}{u}
+\newcommand{\tv}{\gamma}
+
+%%% Flow judgements
+
+\newcommand{\flowsym}{\leadsto}
+\newcommand{\flowone}[3]{{#2}\stackrel{#1}{\flowsym}{#3}}
+\newcommand{\flowtwo}[5]{(\flowone{#1}{#2}{#4},\flowone{#1}{#3}{#5})}
+\newcommand{\flowjudge}[2]{{#1}\,\flowsym\,{#2}}
+\newcommand{\flowjudgev}{\kappa}
+\newcommand{\modelsr}[2]{{#1} \models {#2}}
+
+\newcommand{\logimpconsym}{\vartriangleright_\flowjudgev}
+\newcommand{\logimpconc}[2]{{#1}\logimpconsym {#2}}
+
+\newcommand{\derives}[2]{\mbox{\sf derives}({#1},{#2})}
+\newcommand{\dconv}{{\cal D}}
+\newcommand{\invars}{\mbox{IN}}
+\newcommand{\outvars}{\mbox{OUT}}
+
+\newcommand{\Lo}{\mathsf{Low}}
+\newcommand{\Hi}{\mathsf{High}}
+\newcommand{\hoaremod}[3]{\ensuremath{\{#1\} \; #2\; \{#3\}}}
+\newcommand{\hoaretrip}[3]{\ensuremath{\{#1\} \; #2\; \{#3\}}}
+
+\newcommand{\spc}[1]{\mbox{{\small \tt {#1}}}}
+\newcommand{\inonedat}{\spc{IN\_1\_DAT}}
+\newcommand{\outzerdat}{\spc{OUT\_0\_DAT}}
+\newcommand{\inonerdy}{\spc{IN\_1\_RDY}}
+\newcommand{\outzerrdy}{\spc{OUT\_0\_RDY}}
+\newcommand{\datazer}{\spc{DATA\_0}}
+\newcommand{\dataone}{\spc{DATA\_1}}
+
+% -----------------------------------------------------------------------------
+  %% doframeit draws a box around it argument by manipulating boxes.  It
+  %% is used in the frame environments.
+  %% 
+  %%  Rene' Seindal (seindal@diku.dk) Fri Feb 12 16:03:07 1988
+  %%  added \fboxrule and \fboxsep to \doframeit
+
+\def\doframeit#1{\vbox{%
+  \hrule height\fboxrule
+    \hbox{%
+      \vrule width\fboxrule \kern\fboxsep
+      \vbox{\kern\fboxsep #1\kern\fboxsep }%
+      \kern\fboxsep \vrule width\fboxrule }%
+    \hrule height\fboxrule }}
+
+  %% The frameit and Frameit environments formats text within a single 
+  %% Anything can be framed, including verbatim text.
+
+\def\frameit{\smallskip \advance \linewidth by -7.5pt \setbox0=\vbox \bgroup
+\strut \ignorespaces }
+
+\def\endframeit{\ifhmode \par \nointerlineskip \fi \egroup
+\doframeit{\box0}}
+% -----------------------------------------------------------------------------
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
+
+\newcommand{\myemph}[1]{\emph{{#1}}}
